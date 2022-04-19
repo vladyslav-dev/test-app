@@ -1,7 +1,7 @@
 import styles from './Search.module.scss';
 import React, { useState, useEffect } from 'react';
 import List from '../List';
-import { rotateRight, addItemToArray, alphabeticSort } from '../../utils';
+import { rotatePosition, addItemToArray, alphabeticSort } from '../../utils';
 import { itunesApiRequest } from '../../api';
 
 const Search = () => {
@@ -12,7 +12,7 @@ const Search = () => {
 
     const [loop, setLoop] = useState(() => ({
         intervalId: setInterval(() => {
-            setData(prevState => rotateRight(prevState));
+            setData(prevState => rotatePosition(prevState));
         }, 1000)
     }));
 
@@ -59,7 +59,7 @@ const Search = () => {
                 setIsDataUpdating(false);
 
                 const newInterval = setInterval(() => {
-                    setData(prevState => rotateRight(prevState));
+                    setData(prevState => rotatePosition(prevState));
                 }, 1000);
 
                 setLoop({ intervalId: newInterval });

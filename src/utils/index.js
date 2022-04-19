@@ -1,7 +1,7 @@
-export const rotateRight = (arr) => {
+export const rotatePosition = (arr) => {
     const result = [...arr];
-    const last = result.pop();
-    result.unshift(last);
+    const last = result.shift();
+    result.push(last);
 
     return result;
 }
